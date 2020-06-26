@@ -1,0 +1,38 @@
+---
+title: Loading indicator
+menu: Components
+---
+
+import { Playground, Props } from 'docz';
+import Component from "@reach/component-component";
+import LoadingIndicator from './LoadingIndicator';
+
+# Loading indicator
+Displays loading progress.
+
+<Props of={LoadingIndicator} />
+
+## Loading Indicator Indefinite Demo
+
+<Playground>
+  <LoadingIndicator />
+</Playground>
+
+
+## Loading Indicator with Current Progress Value
+
+<Playground>
+  <Component initialState={{ progress: 0 }}>
+  {({ setState, state }) => {
+    setTimeout(()=> {
+        setState({ progress: (state.progress + 1) % 100 });
+    }, 500);
+    return (
+      <div>
+        <LoadingIndicator loadingPercent={state.progress}/> 
+        {state.progress}
+      </div>
+    );
+  }}
+  </Component>
+</Playground>

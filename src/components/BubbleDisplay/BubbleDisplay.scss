@@ -1,0 +1,27 @@
+.bubble-display {
+  display: block;
+  vertical-align: top;
+  * {
+    transition: all .3s;
+  }
+  &--mouseDown {
+    * {
+      transition: none;
+    }
+
+    // Breaks encapsulation, but avoids passing mouseProps up and over.
+    + .timeline-scrubber {
+      transition: none;
+    }
+  }
+
+  &__rect {
+    fill: transparent;
+    stroke-width: 0;
+    stroke: rgba(0,0,0, 0);
+    cursor: grab;
+    &:active {
+      cursor: grabbing;
+    }
+  }
+}

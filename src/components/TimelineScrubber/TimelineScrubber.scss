@@ -1,0 +1,42 @@
+.timeline-scrubber {
+  position: relative;
+  height: 6px;
+  z-index: 10;
+  box-sizing: border-box;
+  border-bottom: 2px solid transparent;
+  border-top: 2px solid transparent;
+  background: #eeeeee;
+  cursor: pointer;
+  transition: width .3s, margin-left .3s;
+
+  &:focus {
+    outline: none; // @todo change.
+  }
+
+  &:before {
+    z-index: 1;
+    background: transparent;
+    content: '';
+    width: 100%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -10px;
+    height: 20px;
+  }
+
+  &__tooltip {
+    position: absolute;
+    background: rgba(0,0,0,.5);
+    transition: opacity .4s;
+    color: #fff;
+    width: 80px;
+    height: 25px;
+    line-height: 25px;
+    text-align: center;
+    top: -35;
+    border-radius: 3px;
+    left: 0;
+    pointer-events: none;
+  }
+}

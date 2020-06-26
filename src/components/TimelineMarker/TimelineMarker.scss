@@ -1,0 +1,78 @@
+.timeline-marker {
+  position: absolute;
+  width: 4px;
+  height: 11px;
+  display: block;
+  margin-left: -2px;
+  margin-top: -5px;
+  cursor: grab;
+  z-index: 10;
+  background: #000;
+  transition: transform .2s;
+
+  &:after {
+    content: '';
+    position: absolute;
+    background: transparent;
+    height: 11px;
+    margin-left: -5px;
+    width: 11px;
+
+  }
+
+  &--marker {
+    &:hover {
+      transform: scaleY(2);
+    }
+
+    &:active {
+      cursor: grabbing;
+      transform: scaleY(3);
+      background: #000;
+      box-shadow: 0 5px 10px 0 rgba(0, 0, 0, .1);
+    }
+  }
+
+  &--bookmark {
+    background: transparent;
+    background: url('./timeline-marker.svg') no-repeat top left;
+    background-size: contain;
+    width: 29px;
+    height: 29px;
+    margin-left: -14px;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+
+    &:active {
+      box-shadow: none;
+      transform: scale(1.5) translateY(10px);
+
+      &:after {
+        content: '';
+        position: absolute;;
+        background: rgba(#000, .5);
+        width: 1px;
+        height: 16px;
+        top: -5px;
+        left: 19px;
+      }
+    }
+  }
+
+  &__tooltip {
+    position: absolute;
+    top: 15px;
+    left: 0;
+    margin-left: 5px;
+    color: #777;
+    border-radius: 2px;
+    font-size: 11px;
+    transform: translate(-50%, 0);
+    text-shadow: -1px -1px 0 #fff,
+    1px -1px 0 #fff,
+    -1px 1px 0 #fff,
+    1px 1px 0 #fff;
+  }
+}

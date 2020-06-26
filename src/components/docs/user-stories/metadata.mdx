@@ -1,0 +1,88 @@
+---
+name: Metadata
+menu: User stories
+---
+# Metadata user stories
+
+
+## As a user I would like to be able to give the piece of music I’m working on a title and a short description
+**Acceptance criteria**
+* [ ] I can add a label to a canvas
+* [ ] I can add a summary to a canvas
+* [ ] I can edit the existing label on a canvas
+* [ ] I can edit the existing summary on a canvas
+
+**Technical details**
+* Behaviours
+    * Saving label field to original manifest
+    * Saving summary field to original manifest
+* Components
+    * Metadata Editor
+        * Label text field
+        * Summary text area
+
+
+## As a user, I want to be able to see and create labels and descriptions for the bubbles that I have created
+**Acceptance criteria**
+* [ ] I can add label to bubble
+* [ ] I can add summary to bubble
+* [ ] I can edit an existing label
+* [ ] I can edit and existing summary
+
+**Technical details**
+* Behaviours
+    * Saving label field to range
+    * Saving summary field to range
+* Components
+    * Reuse Metadata editor from above
+
+## As a user, I want to see all of the descriptions written about the piece of music at the current time
+**Acceptance criteria**
+* [ ] I can see all descriptions for a given bubble, including parent bubbles
+
+**Technical details**
+* Behaviours
+    * Display metadata for a single range
+    * Calculate all ranges and their parents for a given time stamp
+    * Display multiple levels of metadata
+* Components
+    * MetadataDisplay
+        * label display
+        * summary display
+    * TimeMetadata
+        * filter ranges by time
+        * display MetadataDisplay
+        * Indent levels according to structure
+
+## Technical details
+### Dev tasks
+* [ ] Create Metadata editor component
+* [ ] Create MetadataDisplay component
+* [ ] Create TimeMetadata component
+
+
+### Components
+
+import { Props } from 'docz';
+
+#### Metadata Editor
+Allows for the editing of metadata, from either a range or a manifest.
+
+import MetadataEditor from '../../MetadataEditor/MetadataEditor';
+
+<Props of={MetadataEditor} />
+
+#### Metadata Display
+Displays labels and summaries for ranges and manifests.
+
+import MetadataDisplay from '../../MetadataDisplay/MetadataDisplay';
+
+<Props of={MetadataDisplay} />
+
+#### Project Metadata
+Displays all of the metadata for a given at the current timestamp for both the manifest
+and also the ranges.
+
+import Metadata from '../../Metadata/Metadata';
+
+<Props of={Metadata} />

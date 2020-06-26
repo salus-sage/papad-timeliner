@@ -1,0 +1,37 @@
+---
+title: Keyboard Controls Provider 
+menu: Components
+---
+
+import { Playground, Props } from 'docz';
+import Component from '@reach/component-component';
+import KeyboardControlsProvider from './KeyboardControlsProvider';
+
+# Keyboard Controls Provider
+Handles the keyboard events
+
+<Props of={KeyboardControlsProvider} />
+
+## Keyboard Controls Provider Demo
+
+This demonstration shows how to configure the key commands for the Keyboard Controls Provider. 
+The `default` is the default fallback for all key combinations not defined in the commands config object.
+
+<Playground>
+  <Component initialState={{ lastKey: '' }}>
+  {({ setState, state }) => {
+    return (
+      <div>
+        <KeyboardControlsProvider
+          commands={{
+            'default': (keyCombo, key, ev) => setState({lastKey: keyCombo}),
+            'alt+a': () => setState({lastKey: 'special alt a handler'}),
+          }}
+        />
+        <p>Last key pressed:<b>{state.lastKey}</b></p>
+      </div>
+    );
+  }}
+  </Component>
+</Playground>
+

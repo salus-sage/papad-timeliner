@@ -11,6 +11,10 @@ import 'bootstrap/dist/js/bootstrap.bundle.min';
 import App from './App';
 import { Route, Link, BrowserRouter as Router } from 'react-router-dom'
 import Papad from './components/Papad/Papad';
+import 'primereact/resources/themes/nova-light/theme.css';
+import 'primereact/resources/primereact.min.css';
+import 'primeicons/primeicons.css';
+
 const {
   resource,
   save,

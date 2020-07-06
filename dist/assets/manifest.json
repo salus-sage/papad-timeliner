@@ -1,4 +1,8 @@
 {
   "app.css": "app.css",
-  "app.js": "app.js"
+  "app.js": "app.js",
+  "theme.css": "4e1fa3c1ffc7110485965e28660b21e1.svg",
+  "primeicons.css": "6c2d862694ef444fea1f3b34a43ec996.svg",
+  "fonts/theme.css": "fonts/open-sans-v15-latin-regular.woff2",
+  "fonts/primeicons.css": "fonts/primeicons.woff"
 }

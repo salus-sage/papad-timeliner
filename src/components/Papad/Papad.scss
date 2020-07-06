@@ -1,13 +1,16 @@
 .papad{
     background: #eee;
-.card{
-    width: 50vw;
-    height: 50vh;
-    .playButton{
+    .navbar-expand-lg{
+        background-color: #2e86de;
         color: white;
-        background-color: #686de0;
-        padding: 3em 1em;
-        border-radius: 3px solid #686de0;
+    }
+.card{
+    width: 20vw;
+    margin: .4em;
+    .icons{
+        color:#bdc3c7;
+        font-size:1.4em;
+        cursor: pointer;
     }
 }
 }

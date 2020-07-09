@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Provider } from 'react-redux';
 import VariationsMainView from '../VariationsMainView/VariationsMainView';
 import { PersistGate } from 'redux-persist/integration/react';
+import { useLocation } from "react-router-dom";
 
 const Root = ({
   store,
@@ -13,6 +14,8 @@ const Root = ({
   noHeader,
   noSourceLink,
 }) => {
+  const location = useLocation();
+  console.log(location.state)
   try {
     return (
       <Provider store={store}>
@@ -23,6 +26,7 @@ const Root = ({
             noFooter={noFooter}
             noHeader={noHeader}
             noSourceLink={noSourceLink}
+            audio_url={location.state}
           />
         </PersistGate>
       </Provider>

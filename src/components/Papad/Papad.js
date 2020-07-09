@@ -13,17 +13,7 @@ class Papad extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            cars: [
-                { label: 'Audi', value: 'Audi' },
-                { label: 'BMW', value: 'BMW' },
-                { label: 'Fiat', value: 'Fiat' },
-                { label: 'Honda', value: 'Honda' },
-                { label: 'Jaguar', value: 'Jaguar' },
-                { label: 'Mercedes', value: 'Mercedes' },
-                { label: 'Renault', value: 'Renault' },
-                { label: 'VW', value: 'VW' },
-                { label: 'Volvo', value: 'Volvo' }
-            ],
+            
             car2: '',
             recordData: [],
             channelData: []
@@ -98,8 +88,8 @@ class Papad extends React.Component {
             typeof save === 'undefined',
             callback
         );
+        this.props.history.push("/papad_details",value);
         console.log(value)
-        this.props.history.push("/papad_details");
     }
     render() {
         return (

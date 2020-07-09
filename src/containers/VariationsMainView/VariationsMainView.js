@@ -231,6 +231,7 @@ class VariationsMainView extends React.Component {
             onTitleChange={() => {}}
             hasResource={this.props.hasResource}
             noHeader={this.props.noHeader}
+            audio_url={this.props.audio_url}
           />
           <div className="variations-app__content">
             <AuthCookieService1
@@ -240,9 +241,12 @@ class VariationsMainView extends React.Component {
                 this.props.authService ? this.props.authService[0] : null
               }
             >
+              
+
               <BubbleEditor key={'bubble--' + this.props.url} />
+              {console.log('ooop',this.props.url)}
               {this.props.url ? (
-                <Audio key={'audio--' + this.props.url} />
+                <Audio key={'audio--' + this.props.url} url={this.props.url} />
               ) : null}
               <AudioTransportBar
                 isPlaying={isPlaying}
@@ -322,13 +326,14 @@ class VariationsMainView extends React.Component {
               />
             )}
           </div>
-          {(!hasResource || isLoaded) && (
+          {/* {(!hasResource || isLoaded) && (
             <AudioImporter
               open={isImportOpen}
               error={this.props.importError}
+              audio_url = {audio_url}
               onClose={this.props.url ? this.props.dismissImportModal : null}
               onImport={this.props.importDocument}
-            />
+            /> */}
           )}
           <SettingsPopup
             open={isSettingsOpen}
@@ -383,13 +388,13 @@ VariationsMainView.propTypes = {
   zoom: PropTypes.number.isRequired,
 };
 
-const mapStateProps = state => ({
+const mapStateProps = (state,ownProps) => ({
   volume: state.viewState.volume,
   isPlaying: state.viewState.isPlaying,
   currentTime: state.viewState.currentTime,
   authService: state.canvas.service,
   annotationPages: state.canvas.items,
-  url: state.canvas.url,
+  url: ownProps.audio_url,
   runTime: state.viewState.runTime,
   manifestLabel: state.project.title,
   importError: state.project.error,
@@ -400,7 +405,7 @@ const mapStateProps = state => ({
   selectedRanges: getSelectedRanges(state),
   isImportOpen: state.viewState.isImportOpen,
   isSettingsOpen: state.viewState.isSettingsOpen,
-  audioUrl: state.canvas.url,
+  audioUrl: ownProps.audio_url,
   audioError: state.canvas.error,
   loadingPercent: state.canvas.loadingPercent,
   isLoaded: state.canvas.isLoaded,

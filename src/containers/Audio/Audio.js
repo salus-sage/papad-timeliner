@@ -20,7 +20,8 @@ function Audio({ url, volume, currentTime, startTime, isPlaying, ...props }) {
   const [loaded, setLoaded] = useState();
   const sources = [{ src: url }];
   const lastTime = useRef(() => startTime - 1);
-
+  
+  console.log(sources)
   // Bootstrap the element.
   useLayoutEffect(() => {
     const element = new MediaElement(
@@ -109,6 +110,7 @@ function Audio({ url, volume, currentTime, startTime, isPlaying, ...props }) {
   return (
     <div>
       <audio ref={audio} preload="auto">
+        
         {sources.map((source, key) => (
           <source key={key} src={source.src} />
         ))}
@@ -117,13 +119,16 @@ function Audio({ url, volume, currentTime, startTime, isPlaying, ...props }) {
   );
 }
 
-const mapStateProps = state => ({
-  url: state.canvas.url,
+const mapStateProps = (state,ownprops) => ({
+  
+  url: ownprops.url,
   isPlaying: state.viewState.isPlaying,
   currentTime: state.viewState.currentTime + state.viewState.startTime,
   volume: state.viewState.volume,
   runTime: state.viewState.runTime,
   startTime: state.viewState.startTime,
+
+  
 });
 
 const mapDispatchToProps = {
